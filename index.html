@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sityx</title>
+    <style>
+        body {
+            margin: 0;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Фоновые глоу */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: float 10s infinite alternate ease-in-out;
+            z-index: -1;
+        }
+
+        .glow:nth-child(1) { width: 300px; height: 300px; background: #ff0077; top: 10%; left: 10%; animation-delay: 0s; }
+        .glow:nth-child(2) { width: 400px; height: 400px; background: #00d4ff; top: 50%; left: 60%; animation-delay: 3s; }
+        .glow:nth-child(3) { width: 250px; height: 250px; background: #7dff00; top: 70%; left: 20%; animation-delay: 6s; }
+
+        @keyframes float {
+            0% { transform: scale(0.8) translateY(0); opacity: 0.3; }
+            50% { transform: scale(1.2) translateY(-30px); opacity: 0.6; }
+            100% { transform: scale(1) translateY(0); opacity: 0.3; }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+            z-index: 1;
+        }
+
+        header img { width: 50px; cursor: pointer; }
+
+        .hero {
+            position: relative; z-index: 1;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .hero h1 {
+            font-size: 4rem; margin-bottom: 20px; letter-spacing: 8px; text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, #bbb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: glowText 3s infinite alternate;
+        }
+
+        .hero p { color: #ccc; font-size: 1.3rem; margin-bottom: 30px; }
+
+        @keyframes glowText { from { text-shadow: 0 0 10px rgba(255,255,255,0.2); } to { text-shadow: 0 0 25px rgba(255,255,255,0.6); } }
+
+        /* Карточки проектов */
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: #111;
+            border-radius: 15px;
+            box-shadow: 0 0 50px 4px #000;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card h2 { font-size: 1.5rem; margin: 0; color: #fff; }
+        .project-card p { color: #bbb; font-size: 1rem; margin: 0; flex-grow: 1; }
+        .project-card a {
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .project-card a:hover { background: #e0e0e0; transform: scale(1.05); }
+    </style>
+</head>
+
+<body>
+    <div class="glow"></div>
+    <div class="glow"></div>
+    <div class="glow"></div>
+
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+
+    <section class="hero">
+        <h1>Sityx</h1>
+        <p>создовай сайт как игру!</p>
+    </section>
+
+    <section class="projects">
+        <div class="project-card">
+            <h2>Sityx v5</h2>
+            <p>Unity-подобный конструктор сайтов который прост для изучения.</p>
+            <a href="Sityx.exe" download>скачать</a>
+        </div>
+    </section>
+</html>
